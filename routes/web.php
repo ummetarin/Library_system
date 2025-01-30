@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 
 // creating routes
-Route::get('/',function(){
-    return view('Home');
+Route::get('/',function(){return view('Home');});
+Route::get('/about',function(){
+    return view('About');
 });
+Route::get('/log',function(){
+    return view('login');
+})
 
