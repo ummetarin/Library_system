@@ -1,0 +1,8 @@
+#library Mangement System
+1.Route for home,about,service,service details,404,all book,book details,blog,blog details(optional)
+2.login system ,register system,dashborad for admin
+3.book details(price,category,borow book,date of borrow book,duration,quantity)
+4,in dashboard add book,delete book,edit book
+
+work->
+create route for home,about,service,all book,login,register 
