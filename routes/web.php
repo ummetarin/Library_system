@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 // creating routes
 Route::get('/',function(){return view('Home');});
-Route::get('/about',function(){
-    return view('About');
+Route::get('/about',function(){return view('About');});
+Route::get('/log',function(){return view('login');});
+Route::get('/res',function(){return view('register');});
+Route::get('/all',function(){
+    return view('Allbook');
 });
-Route::get('/log',function(){
-    return view('login');
-})
 
