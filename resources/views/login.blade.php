@@ -96,7 +96,7 @@
          </div>
 
          <div class="flex flex-row lg:gap-[24px] md:gap-[16px]  items-center">
-            <img class="w-full  max-w-[300px] md:max-w-[400px] lg:max-w-[600px] h-auto rounded-2xl" src="https://i.postimg.cc/0QwZJYYb/360-F-370928450-R6g8c0j5cey86-PUXE32-W7-KMiq-IUe1f-OI.jpg" alt="login image">
+            <img class="w-full  max-w-[300px] md:max-w-[400px] lg:max-w-[600px] h-auto rounded-2xl" src="https://i.postimg.cc/t4BwWkHC/login-concept-illustration-114360-739.avif" alt="login image">
              <!-- form -->
               <form class="max-w-[600px] p-6 border border-black rounded-lg w-full gap-[20px] flex flex-col" action="">
               <div>
