@@ -7,7 +7,13 @@ use Illuminate\Http\Request;
 class Bookcontroller extends Controller
 {
     public function allbook(){
-        $book="tor matha";
-        return view('Allbook',['bok'=>$book]);
+       $data=[
+        ['id'=>23,'name'=>'tarin'],
+        ['id'=>23,'name'=>'tarin'],
+        ['id'=>23,'name'=>'tarin'],
+        ['id'=>23,'name'=>'tarin']
+       ];
+
+       return view('Allbook',['item'=>$data]);
     }
 }
