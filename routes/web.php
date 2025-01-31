@@ -20,13 +20,14 @@ use App\Http\Controllers\Bookcontroller;
 Route::get('/',function(){return view('Home');});
 Route::get('/about',function(){return view('About');});
 Route::get('/log',function(){return view('login');});
-Route::get('/res',function(){return view('register');});
+Route::get('/req',function(){return view('register');});
 // Route::get('/all',function(){
 //     return view('Allbook');
 // });
 
 
 // controller
-Route::get('/mess', [FormController::class, 'show']);
+Route::get('/reg', [FormController::class,'show']);
+Route::get('/reg', [FormController::class,'handleform']);
 Route::get('/all',[Bookcontroller::class,'allbook']);
 

@@ -100,7 +100,7 @@
          src="https://i.postimg.cc/KcT6wttJ/register-access-login-password-internet-online-website-concept-flat-illustration-385073-108.avif">
     
     <!-- form -->
-    <form class="max-w-[600px] p-6 border border-black rounded-lg w-full gap-[20px] flex flex-col" action="">
+    <form method="post"  class="max-w-[600px] p-6 border border-black rounded-lg w-full gap-[20px] flex flex-col" action="/submit">
         <div>
             <label for="name" class="block font-medium text-teal-800 mb-2 text-lg">Name</label>
             <input type="text" name="name" placeholder="Name" 

@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 class FormController extends Controller
 {
    public function show(){
-    $mess="hello";
-    return view('mess',['mess'=>$mess]);
+    return view('register');
+   }
+
+   public function handleform(Request $request){
+   
+
    }
 }
