@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\Bookcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,12 @@ Route::get('/',function(){return view('Home');});
 Route::get('/about',function(){return view('About');});
 Route::get('/log',function(){return view('login');});
 Route::get('/res',function(){return view('register');});
-Route::get('/all',function(){
-    return view('Allbook');
-});
+// Route::get('/all',function(){
+//     return view('Allbook');
+// });
+
+
+// controller
+Route::get('/mess', [FormController::class, 'show']);
+Route::get('/all',[Bookcontroller::class,'allbook']);
 
