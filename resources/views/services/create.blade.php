@@ -1,4 +1,4 @@
-@extends('Home')
+
 
 @section('content')
     <h1>Add a New Service</h1>
@@ -8,4 +8,4 @@
         <textarea name="description" placeholder="Service Description" required></textarea>
         <button type="submit">Add Service</button>
     </form>
-@endsection
+

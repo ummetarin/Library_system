@@ -9,10 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('author');
+            $table->decimal('price', 8, 2);
+            $table->string('category');  // Ensure this matches your form field
+            $table->string('image');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }

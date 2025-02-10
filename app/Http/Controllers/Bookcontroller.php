@@ -24,6 +24,10 @@ class Bookcontroller extends Controller
         $request->validate([
             'title' => 'required',
             'author' => 'required',
+            'price' => 'required',
+            'cat' => 'required',
+            'img' => 'required',
+            'quan' => 'required'
         ]);
 
         Book::create($request->all());
@@ -42,6 +46,10 @@ class Bookcontroller extends Controller
         $request->validate([
             'title' => 'required',
             'author' => 'required',
+            'price' => 'required',
+            'cat' => 'required',
+            'img' => 'required',
+            'quan' => 'required'
         ]);
 
         $book = Book::findOrFail($id);

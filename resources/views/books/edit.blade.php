@@ -1,4 +1,4 @@
-@extends('Home')
+
 
 @section('content')
     <h1>Edit Book</h1>
@@ -9,4 +9,4 @@
         <input type="text" name="author" value="{{ $book->author }}" required>
         <button type="submit">Update Book</button>
     </form>
-@endsection
+

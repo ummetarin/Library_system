@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\Bookcontroller;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------

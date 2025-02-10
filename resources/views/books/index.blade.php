@@ -1,4 +1,4 @@
-@extends('Home')
+
 
 @section('content')
     <h1>All Books</h1>
@@ -13,4 +13,4 @@
             <button type="submit">Delete</button>
         </form>
     @endforeach
-@endsection
+
