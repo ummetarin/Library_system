@@ -3,47 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>All Books</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
-        .book-container { border: 1px solid #ccc; padding: 10px; margin: 10px; }
-        img { display: block; margin-top: 10px; width: 100px; }
-        .buttons { margin-top: 10px; }
-        .btn { padding: 8px 12px; text-decoration: none; color: white; border-radius: 5px; margin-right: 5px; }
-        .details-btn { background-color: blue; }
-        .buy-btn { background-color: green; }
-        .borrow-btn { background-color: orange; }
-    </style>
 </head>
-<body>
+<body class="bg-gray-100 font-serif">
 
-    <h2>All Books</h2>
+<!-- Banner Section -->
+<section class="bg-teal-800 py-20 text-center text-white">
+    <h1 class="text-5xl font-bold">All Books</h1>
+    <p class="text-lg mt-2 max-w-2xl mx-auto">Explore a vast collection of books. Browse, buy, or borrow your favorite titles.</p>
+</section>
 
-    {{-- Debugging: Ensure $books is being passed --}}
+<!-- Search and Books Section -->
+<section class="container mx-auto py-10 px-4">
+    <div class="flex flex-col md:flex-row items-center justify-between mb-8">
+        <!-- Search by Category -->
+        <form action="{{ route('bookdetails.all') }}" method="GET" class="flex flex-wrap gap-4 items-center">
+            <label for="category" class="text-lg font-medium text-gray-700">Search by Category:</label>
+            <select name="category" id="category" class="p-2 border border-gray-400 rounded-lg">
+                <option value="">All Categories</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category }}" {{ request('category') == $category ? 'selected' : '' }}>
+                        {{ ucfirst($category) }}
+                    </option>
+                @endforeach
+            </select>
+            <button type="submit" class="px-4 py-2 bg-teal-700 hover:bg-teal-900 text-white rounded-lg">Search</button>
+        </form>
+    </div>
+
+    <!-- Books Listing -->
     @if(count($books) == 0)
-        <p>No books found.</p>
+        <p class="text-center text-gray-600">No books found.</p>
     @else
-        @foreach ($books as $book)
-            <div class="book-container">
-                <p><strong>Title:</strong> {{ $book->title }}</p>
-                <p><strong>Author:</strong> {{ $book->author }}</p>
-                <p><strong>Price:</strong> ${{ $book->price }}</p>
-                <p><strong>Category:</strong> {{ $book->category }}</p>
-                <p><strong>Quantity:</strong> {{ $book->quantity }}</p>
-                <p>
-                    <strong>Image:</strong> 
-                    <img src="{{ asset($book->image) }}" alt="Book Image">
-                </p>
-
-                <!-- Buttons for details, buy, and borrow -->
-                <div class="buttons">
-                    <a href="{{ route('book.show', $book->id) }}" class="btn details-btn">Details</a>
-                    <a href="{{ route('book.buy', $book->id) }}" class="btn buy-btn">Buy</a>
-                    <a href="{{ route('book.borrow', $book->id) }}" class="btn borrow-btn">Borrow</a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            @foreach ($books as $book)
+            <div class="bg-white  shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <img src="{{ asset($book->image) }}" alt="{{ $book->title }}" 
+                     class="w-full h-[280px] object-cover object-center rounded-t-lg">
+                <div class="p-4">
+                    <h2 class="text-xl font-bold text-teal-700">{{ $book->title }}</h2>
+                    <p class="text-sm text-gray-500">{{ $book->category }}</p>
+                    <p class="text-md font-semibold mt-2">Price: ${{ $book->price }}</p>
+                    <div class="flex justify-between mt-4">
+                        <a href="{{ route('bookdetails.show', $book->id) }}" 
+                           class="px-4 py-2 bg-teal-700 hover:bg-teal-900 text-white rounded-lg">Details</a>
+                        <a href="{{ route('bookdetails.buy', $book->id) }}" 
+                           class="px-4 py-2 bg-green-600 hover:bg-green-800 text-white rounded-lg">Buy</a>
+                    </div>
                 </div>
             </div>
-        @endforeach
+            @endforeach
+        </div>
     @endif
+</section>
 
 </body>
 </html>

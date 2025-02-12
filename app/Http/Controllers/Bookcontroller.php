@@ -64,12 +64,41 @@ class Bookcontroller extends Controller
         return redirect()->route('books.index')->with('success', 'Book deleted successfully!');
     }
 
-    public function allBooks()
-    {
-        $books = Book::all(); 
-        return view('bookdetails.all', compact('books'));
-    }
+    public function allBooks(Request $request)
+{
+    $query = Book::query();
     
+    // Get distinct categories for the dropdown
+    $categories = Book::select('category')->distinct()->pluck('category');
+
+    // Check if a category filter is applied
+    if ($request->has('category') && !empty($request->category)) {
+        $query->where('category', $request->category);
+    }
+
+    $books = $query->get();
+    
+    return view('bookdetails.all', compact('books', 'categories'));
+}
+
+    public function show($id)
+{
+    $book = Book::findOrFail($id);
+    return view('bookdetails.show', compact('book')); // Create 'show.blade.php' for details page
+}
+
+public function buy($id)
+{
+    $book = Book::findOrFail($id);
+    return view('bookdetails.buy', compact('book')); // Create 'buy.blade.php' for purchase
+}
+
+public function borrow($id)
+{
+    $book = Book::findOrFail($id);
+    return view('bookdetails.borrow', compact('book')); // Create 'borrow.blade.php' for borrowing
+}
+
 
    
 

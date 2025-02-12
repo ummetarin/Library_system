@@ -48,9 +48,9 @@ Route::delete('/books/delete/{id}', [BookController::class, 'destroy'])->name('b
 
 //book details
 Route::get('/books/all', [BookController::class, 'allBooks'])->name('bookdetails.all');
-Route::get('/books/{id}/show', [BookController::class, 'show'])->name('book.show');
-Route::get('/books/{id}/buy', [BookController::class, 'buy'])->name('book.buy');
-Route::get('/books/{id}/borrow', [BookController::class, 'borrow'])->name('book.borrow');
+Route::get('/books/{id}/show', [BookController::class, 'show'])->name('bookdetails.show');
+Route::get('/books/{id}/buy', [BookController::class, 'buy'])->name('bookdetails.buy');
+Route::get('/books/{id}/borrow', [BookController::class, 'borrow'])->name('bookdetails.borrow');
 
 
 
