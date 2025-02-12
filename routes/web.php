@@ -38,15 +38,24 @@ Route::get('/all',[Bookcontroller::class,'allbook']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // Book Management Routes
-Route::get('/books', [BookController::class, 'index'])->name('books.index');  // Show all books
-Route::get('/books/create', [BookController::class, 'create'])->name('books.create');  // Form to add a book
-Route::post('/books/store', [BookController::class, 'store'])->name('books.store');  // Store a new book
-Route::get('/books/edit/{id}', [BookController::class, 'edit'])->name('books.edit');  // Edit book form
-Route::put('/books/update/{id}', [BookController::class, 'update'])->name('books.update');  // Update book
-Route::delete('/books/delete/{id}', [BookController::class, 'destroy'])->name('books.destroy');  // Delete book
+Route::get('/books', [BookController::class, 'index'])->name('books.index');  
+Route::get('/books/create', [BookController::class, 'create'])->name('books.create');  
+Route::post('/books', [BookController::class, 'store'])->name('books.store'); 
+Route::get('/books/edit/{id}', [BookController::class, 'edit'])->name('books.edit');  
+Route::put('/books/update/{id}', [BookController::class, 'update'])->name('books.update');  
+Route::delete('/books/delete/{id}', [BookController::class, 'destroy'])->name('books.destroy');
+
+
+//book details
+Route::get('/books/all', [BookController::class, 'allBooks'])->name('bookdetails.all');
+Route::get('/books/{id}/show', [BookController::class, 'show'])->name('book.show');
+Route::get('/books/{id}/buy', [BookController::class, 'buy'])->name('book.buy');
+Route::get('/books/{id}/borrow', [BookController::class, 'borrow'])->name('book.borrow');
+
+
 
 // Service Management Routes
-Route::get('/services', [ServiceController::class, 'index'])->name('services.index');  // Show all services
-Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');  // Form to add a service
-Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');  // Store a new service
+Route::get('/services', [ServiceController::class, 'index'])->name('services.index'); 
+Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');  
+Route::post('/services/store', [ServiceController::class, 'store'])->name('services.store');  
 

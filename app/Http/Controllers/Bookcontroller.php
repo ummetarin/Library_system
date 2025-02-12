@@ -25,9 +25,9 @@ class Bookcontroller extends Controller
             'title' => 'required',
             'author' => 'required',
             'price' => 'required',
-            'cat' => 'required',
-            'img' => 'required',
-            'quan' => 'required'
+            'category' => 'required',
+            'image' => 'required',
+            'quantity' => 'required|integer'
         ]);
 
         Book::create($request->all());
@@ -44,12 +44,12 @@ class Bookcontroller extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
+           'title' => 'required',
             'author' => 'required',
             'price' => 'required',
-            'cat' => 'required',
-            'img' => 'required',
-            'quan' => 'required'
+            'category' => 'required',
+            'image' => 'required',
+            'quantity' => 'required|integer'
         ]);
 
         $book = Book::findOrFail($id);
@@ -63,6 +63,14 @@ class Bookcontroller extends Controller
         Book::destroy($id);
         return redirect()->route('books.index')->with('success', 'Book deleted successfully!');
     }
+
+    public function allBooks()
+    {
+        $books = Book::all(); 
+        return view('bookdetails.all', compact('books'));
+    }
+    
+
    
 
 }
